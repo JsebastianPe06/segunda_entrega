@@ -10,26 +10,56 @@ las cuales tienen etiquetas que indica su tipo de contenido.
 #include <string>
 #include <list>
 
+// ---------------------------------------------------------------------------
 class Etiqueta{
 	private:
 		std::string nombre; //un nombre que define a que tipo de contenido hace referencia
+		int etiqueta_id;
 
 	public:
-		Etiqueta(std::string nombre);
+		Etiqueta(std::string nombre, int id);
 		~Etiqueta();
 
 		std::string obtener_etiqueta();
+		int obtener_identificador();
 };
-
+// ---------------------------------------------------------------------------
 class Contenido{
-	private:
+	protected:
 		std::string nombre;
-		float valoracion; //calificación según tipo de 0.0 a 5.0
-		std::list<Etiqueta> categoria; 
+		float valoracion; //calificación según tipo de 1.0 a 5.0
+		int id_contenido;
+		std::list<std::string> categorias;
 
 	public:
-		Contenido(std::string nombre, float valoracion);
-		~Contenido();
-};
+		Contenido(std::string nombre, float valoracion, int id, std::list<std::string> tag);
+		virtual ~Contenido();
 
+		int obtener_identificador();
+		std::string obtener_nombre();
+		float obtener_valoracion();
+		std::list<std::string> obtener_categorias();
+		void anadir_categoria(Etiqueta e);
+};
+// ---------------------------------------------------------------------------
+class Pelicula: public Contenido{
+	protected:
+		int minutos;
+
+	public:
+		Pelicula(std::string nombre, float valoracion, int minutos, int id, std::list<std::string> tag);
+		~Pelicula();
+};
+// ---------------------------------------------------------------------------
+class Serie: public Contenido{
+	protected:
+		int cantidad_cap;
+		int cantidad_temp;
+
+	public:
+		Serie(std::string nombre, float valoracion, int can_cap, int can_temp, int id,
+			std::list<std::string> tag);
+		~Serie();
+};
+// ---------------------------------------------------------------------------
 #endif

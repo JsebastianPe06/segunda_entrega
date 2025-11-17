@@ -1,0 +1,332 @@
+/*
+Los métodos de las clases Plan y Plataforma
+*/
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
+
+#include "plataforma.h"
+
+#include <nlohmann/json.hpp>
+
+// ===========================================================================
+// Clase Plan
+
+/*
+Constructor de Plan
+*/
+Plan::Plan(std::string nombre, int costo){
+  this->nombre = nombre;
+  this->costo = costo;
+};
+
+Plan::~Plan(){
+};
+
+std::string Plan::obtener_nombre(){
+  return nombre;
+};
+
+// =========================
+// Clase Basico
+// =========================
+
+/*
+Constructor de Basico
+*/
+Basico::Basico()
+  :Plan("Básico", 12000){ 
+};
+
+/*
+Destructor de Basico
+*/
+Basico::~Basico(){
+};
+
+// =========================
+// Clase Premium
+// =========================
+
+/*
+Constructor de Premium
+*/
+Premium::Premium()
+  :Plan("Premium", 29000){
+}
+
+/*
+Destructor de Premium
+*/
+Premium::~Premium(){
+};
+// ===========================================================================
+// ===========================================================================
+// Clase Plataforma
+
+/*
+Constructor de Plataforma, cargo los datos de un json en la carpeta data
+*/
+Plataforma::Plataforma(){
+  try {
+    // Cargar etiquetas
+    std::ifstream f_et("data/etiquetas.json");
+    if (!f_et.is_open())
+        throw std::runtime_error("No se pudo abrir data/etiquetas.json");
+    nlohmann::json j_et;
+    f_et >> j_et;
+    cargar_etiquetas(j_et);
+    // Cargar contenidos
+    std::ifstream f_con("data/contenidos.json");
+    if (!f_con.is_open())
+        throw std::runtime_error("No se pudo abrir data/contenidos.json");
+    nlohmann::json j_con;
+    f_con >> j_con;
+    cargar_contenidos(j_con);
+    // Cargar usuarios
+    std::ifstream f_us("data/usuarios.json");
+    if (!f_us.is_open())
+        throw std::runtime_error("No se pudo abrir data/usuarios.json");
+    nlohmann::json j_us;
+    f_us >> j_us;
+    cargar_usuarios(j_us);
+    // Cargar secciones (etiqueta-contenido)
+    std::ifstream f_sec("data/secciones.json");
+    if (!f_sec.is_open())
+        throw std::runtime_error("No se pudo abrir data/secciones.json");
+    nlohmann::json j_sec;
+    f_sec >> j_sec;
+    cargar_secciones(j_sec);
+    // Cargar datos de usuarios
+    std::ifstream f_dat("data/datos_usuarios.json");
+    if (!f_dat.is_open())
+        throw std::runtime_error("No se pudo abrir data/datos_usuarios.json");
+    nlohmann::json j_dat;
+    f_dat >> j_dat;
+    cargar_datos_usuarios(j_dat);
+    std::cout << "Datos cargados correctamente.\n";
+}
+catch (nlohmann::json::parse_error& e) {
+  throw std::runtime_error("ERROR: Uno de los archivos JSON está corrupto: " + std::string(e.what()));
+}
+catch (std::exception& e) {
+  throw std::runtime_error("ERROR al cargar los datos de la plataforma: " + std::string(e.what()));
+  }
+};
+
+/*
+El destructor de la Platoforma, guarda en json los cambios
+*/
+Plataforma::~Plataforma(){
+};
+
+/*
+guarda en json las etiquetas de la plataforma en la ruta data/etiquetas.json
+*/
+void Plataforma::guardar_etiquetas(){
+  nlohmann::json j;
+  for (const auto& par:etiquetas){
+    Etiqueta* et = par.second;
+    nlohmann::json jc;
+    jc["id"] = et->obtener_identificador();
+    jc["nombre"] = et->obtener_etiqueta();
+    j.push_back(jc);
+}
+  std::ofstream f("data/etiquetas.json");
+  if(!f.is_open())
+    throw std::runtime_error("No se pudo abrir data/etiquetas.json");
+  f << std::setw(4) << j;
+};
+
+/*
+guarda en json los contenidos de la plataforma en la ruta data/contenidos.json
+*/
+void Plataforma::guardar_contenidos(){
+  nlohmann::json j;
+  for (const auto& par:catalogo){
+    Contenido* c = par.second;
+    nlohmann::json jc;
+    jc["id"] = c->obtener_identificador();
+    jc["nombre"] = c->obtener_nombre();
+    jc["valoracion"] = c->obtener_valoracion();
+    // Etiquetas asociadas al contenido
+    for(auto& et:c->obtener_categorias()){
+      jc["etiquetas"].push_back(et);
+    }
+    j.push_back(jc);
+  }
+  std::ofstream f("data/contenidos.json");
+  if(!f.is_open())
+    throw std::runtime_error("No se pudo abrir data/contenidos.json");
+  f << std::setw(4) << j;
+};
+
+/*
+guarda en json los usuarios de la plataforma en la ruta data/usuarios.json
+*/
+void Plataforma::guardar_usuarios(){
+  nlohmann::json j;
+  for(const auto& par:usuarios){
+    Usuario* u = par.second;
+    nlohmann::json jc;
+    jc["id"] = u->obtener_identificacdor();
+    jc["nombre"] = u->obtener_nombre();
+    jc["plan"] = u->obtener_plan()->obtener_nombre();
+    j.push_back(jc);
+  }
+  std::ofstream f("data/usuarios.json");
+  if(!f.is_open())
+    throw std::runtime_error("No se pudo abrir data/usuarios.json");
+  f << std::setw(4) << j;
+};
+
+/*
+guarda en json las secciones de la plataforma en la ruta data/secciones.json,
+las secciones son la relación entre etiquetas y contenidos de la plataforma
+*/
+void Plataforma::guardar_secciones(){
+  nlohmann::json j;
+  // matriz sparse etiqueta-contenido
+  for(int k=0; k<secciones_eti_cont.outerSize(); ++k){
+    for(Eigen::SparseMatrix<int>::InnerIterator it(secciones_eti_cont, k); it; ++it){
+      nlohmann::json jc;
+      jc["fila"] = it.row();
+      jc["columna"]= it.col();
+      jc["valor"] = it.value();
+      j.push_back(jc);
+    }
+  }
+  std::ofstream f("data/secciones.json");
+  if(!f.is_open())
+    throw std::runtime_error("No se pudo abrir data/secciones.json");
+  f << std::setw(4) << j;
+};
+
+/*
+guarda en json los datos de los usuarios plataforma en la ruta
+data/datos_usuarios.json, los datos son la relación entre los usuarios y contenidos
+*/
+void Plataforma::guardar_datos_usuarios(){
+  nlohmann::json j;
+  // matriz sparse usuario → contenido visto
+  for(int k=0; k<datos_usuario.outerSize(); ++k){
+    for (Eigen::SparseMatrix<float>::InnerIterator it(datos_usuario, k); it; ++it){
+      nlohmann::json jc;
+      jc["usuario"] = it.row();
+      jc["contenido"] = it.col();
+      jc["valor"] = it.value();
+      j.push_back(jc);
+    }
+  }
+  std::ofstream f("data/datos_usuarios.json");
+  if(!f.is_open())
+    throw std::runtime_error("No se pudo abrir data/datos_usuarios.json");
+  f << std::setw(4) << j;
+};
+
+/*
+Guarda los cambios y añadidos que se hacen en las estructuras y se guardan en
+los json
+*/
+void Plataforma::guardar_datos(){
+  guardar_etiquetas();
+  guardar_contenidos();
+  guardar_usuarios();
+  guardar_secciones();
+  guardar_datos_usuarios();
+};
+
+/*
+Cargar etiquetas desde data/etiquetas.json
+*/
+void Plataforma::cargar_etiquetas(const nlohmann::json& j) {
+  etiquetas.clear();
+    for (const auto& et_json : j) {
+    int id = et_json["id"];
+    std::string nombre = et_json["nombre"];
+    Etiqueta* et = new Etiqueta(nombre, id);
+    etiquetas[nombre] = et;
+  }
+  can_etiquetas = etiquetas.size();
+}
+
+/*
+Cargar contenidos desde data/contenidos.json
+*/
+void Plataforma::cargar_contenidos(const nlohmann::json& j) {
+  catalogo.clear();
+  for (const auto& c_json:j){
+    std::list<std::string> l;
+    // Asociar etiquetas
+    for(const auto& et:c_json["etiquetas"]){
+      l.push_back(et);
+    }
+    int id = c_json["id"];
+    std::string nombre = c_json["nombre"];
+    float valoracion = c_json["valoracion"];
+    Contenido* c = new Contenido(nombre, valoracion, id, l);
+    catalogo[nombre] = c;
+}
+  can_contenido = catalogo.size();
+};
+
+/*
+Cargar usuarios desde data/usuarios.json
+*/
+void Plataforma::cargar_usuarios(const nlohmann::json& j){
+  usuarios.clear();
+  for (const auto& u_json:j){
+    int id = u_json["id"];
+    std::string nombre = u_json["nombre"];
+    std::string plan_nombre = u_json["plan"];
+    Usuario* u = new Usuario(nombre, id);
+    if(plan_nombre == "Premium") u->cambiar_plan();
+    usuarios[nombre] = u;
+  }
+};
+
+/*
+Cargar matriz secciones (etiqueta → contenido) desde data/secciones.json
+*/
+void Plataforma::cargar_secciones(const nlohmann::json& j) {
+  secciones_eti_cont.resize(can_etiquetas, can_contenido);
+  secciones_eti_cont.setZero();
+  for (const auto& item : j) {
+    int fila = item["fila"];
+    int col = item["columna"];
+    int valor = item["valor"];
+    secciones_eti_cont.coeffRef(fila, col) = valor;
+  }
+};
+
+/*
+Cargar matriz datos de usuarios (usuario → contenido visto) desde data/datos_usuarios.json
+*/
+void Plataforma::cargar_datos_usuarios(const nlohmann::json& j){
+  datos_usuario.resize(usuarios.size(), catalogo.size());
+  datos_usuario.setZero();
+  for (const auto& item : j) {
+    int fila = item["usuario"];
+    int col = item["contenido"];
+    float valor = item["valor"];
+    datos_usuario.coeffRef(fila, col) = valor;
+  }
+}
+
+/*
+Añade una etiqueta a las disponables en la plataforma
+*/
+void Plataforma::anadir_etiqueta(){
+};
+
+/*
+Añade un nuevo conteido al catálogo
+*/
+void Plataforma::anadir_contenido(){
+};
+
+/*
+Añade un nuevo usuario a la plataforma
+*/
+void Plataforma::anadir_usuario(){
+};

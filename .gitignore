@@ -1,12 +1,12 @@
-# Build files
+# Archivos construidos
 build/
 *.o
 *.exe
 
-# Editor configs
+# Configuraciones del editor
 .vscode/
 *.log
 
-# Temporary or backup files
+# Archivos temporales
 *.tmp
 *.bak
