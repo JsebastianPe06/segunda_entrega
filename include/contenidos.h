@@ -29,6 +29,7 @@ class Contenido{
 		std::string nombre;
 		float valoracion; //calificación según tipo de 1.0 a 5.0
 		int id_contenido;
+		bool es_pelicula;
 		std::list<std::string> categorias;
 
 	public:
@@ -40,6 +41,8 @@ class Contenido{
 		float obtener_valoracion();
 		std::list<std::string> obtener_categorias();
 		void anadir_categoria(Etiqueta e);
+		bool tipo();
+		virtual int obtener_duracion() const = 0;
 };
 // ---------------------------------------------------------------------------
 class Pelicula: public Contenido{
@@ -49,17 +52,20 @@ class Pelicula: public Contenido{
 	public:
 		Pelicula(std::string nombre, float valoracion, int minutos, int id, std::list<std::string> tag);
 		~Pelicula();
+
+		int obtener_duracion() const override;
 };
 // ---------------------------------------------------------------------------
 class Serie: public Contenido{
 	protected:
 		int cantidad_cap;
-		int cantidad_temp;
 
 	public:
-		Serie(std::string nombre, float valoracion, int can_cap, int can_temp, int id,
+		Serie(std::string nombre, float valoracion, int can_cap, int id,
 			std::list<std::string> tag);
 		~Serie();
+
+		int obtener_duracion() const override;
 };
 // ---------------------------------------------------------------------------
 #endif

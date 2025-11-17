@@ -12,6 +12,7 @@ Constructor de etiqueta
 */
 Etiqueta::Etiqueta(std::string nombre, int id){
   this->nombre = nombre;
+  this->etiqueta_id = id;
 };
 
 Etiqueta::~Etiqueta(){
@@ -39,6 +40,7 @@ Contenido::Contenido(std::string nombre, float valoracion, int id, std::list<std
   this->valoracion = valoracion;
   this->id_contenido = id;
   this->categorias = tag;
+  this->es_pelicula = 0;
 };
 
 Contenido::~Contenido(){
@@ -75,6 +77,13 @@ Añade una etiqueta a la liste de etiquetas de la categoría
 void Contenido::anadir_categoria(Etiqueta categoria){
   categorias.push_back(categoria.obtener_etiqueta());
 };
+
+/*
+Retorna si es película o serie (falso si es serie)
+*/
+bool Contenido::tipo(){
+  return es_pelicula;
+};
 //============================================================================
 //============================================================================
 //Clases Serie y Pelicula
@@ -86,20 +95,34 @@ Pelicula::Pelicula(std::string nombre, float valoracion, int minutos, int id,
   std::list<std::string> tag)
 :Contenido(nombre, valoracion, id, tag){
   this->minutos = minutos; //duracion en minutos
+  this->es_pelicula = 1;
 };
 
 Pelicula::~Pelicula(){
 };
 
 /*
+Retorna los minutos que dura la película
+*/
+int Pelicula::obtener_duracion() const{
+  return minutos;
+};
+
+/*
 Constructor de Serie
 */
-Serie::Serie(std::string nombre, float valoracion, int can_cap, int can_temp,
+Serie::Serie(std::string nombre, float valoracion, int can_cap,
   int id, std::list<std::string> tag)
 :Contenido(nombre, valoracion, id, tag){
   this->cantidad_cap = can_cap; //Cantidad de capítulos
-  this->cantidad_temp = can_temp; //Cantidad de temporadas
 };
 
 Serie::~Serie(){
+};
+
+/*
+Retorna la cantidad de capítulos de la pelicula
+*/
+int Serie::obtener_duracion() const{
+  return cantidad_cap;
 };

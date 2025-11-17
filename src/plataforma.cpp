@@ -4,6 +4,7 @@ Los métodos de las clases Plan y Plataforma
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+#include <typeinfo>
 
 #include "plataforma.h"
 
@@ -149,10 +150,12 @@ void Plataforma::guardar_contenidos(){
     jc["id"] = c->obtener_identificador();
     jc["nombre"] = c->obtener_nombre();
     jc["valoracion"] = c->obtener_valoracion();
+    jc["duracion"] = c->obtener_duracion();
     // Etiquetas asociadas al contenido
     for(auto& et:c->obtener_categorias()){
       jc["etiquetas"].push_back(et);
     }
+    jc["tipo"] = c->tipo()? "Pelicula":"Serie";
     j.push_back(jc);
   }
   std::ofstream f("data/contenidos.json");
@@ -247,7 +250,6 @@ void Plataforma::cargar_etiquetas(const nlohmann::json& j) {
     Etiqueta* et = new Etiqueta(nombre, id);
     etiquetas[nombre] = et;
   }
-  can_etiquetas = etiquetas.size();
 }
 
 /*
@@ -264,10 +266,16 @@ void Plataforma::cargar_contenidos(const nlohmann::json& j) {
     int id = c_json["id"];
     std::string nombre = c_json["nombre"];
     float valoracion = c_json["valoracion"];
-    Contenido* c = new Contenido(nombre, valoracion, id, l);
-    catalogo[nombre] = c;
-}
-  can_contenido = catalogo.size();
+    int d = c_json["duracion"];
+    if(c_json["tipo"]=="Pelicula"){
+      Contenido* c = new Pelicula(nombre, valoracion, d, id, l);
+      catalogo[nombre] = c;
+    }
+    else{
+      Contenido* c = new Serie(nombre, valoracion, d, id, l);
+      catalogo[nombre] = c;
+    }
+  }
 };
 
 /*
@@ -289,7 +297,7 @@ void Plataforma::cargar_usuarios(const nlohmann::json& j){
 Cargar matriz secciones (etiqueta → contenido) desde data/secciones.json
 */
 void Plataforma::cargar_secciones(const nlohmann::json& j) {
-  secciones_eti_cont.resize(can_etiquetas, can_contenido);
+  secciones_eti_cont.resize(etiquetas.size(), catalogo.size());
   secciones_eti_cont.setZero();
   for (const auto& item : j) {
     int fila = item["fila"];
@@ -305,7 +313,7 @@ Cargar matriz datos de usuarios (usuario → contenido visto) desde data/datos_u
 void Plataforma::cargar_datos_usuarios(const nlohmann::json& j){
   datos_usuario.resize(usuarios.size(), catalogo.size());
   datos_usuario.setZero();
-  for (const auto& item : j) {
+  for(const auto& item : j){
     int fila = item["usuario"];
     int col = item["contenido"];
     float valor = item["valor"];
@@ -316,17 +324,49 @@ void Plataforma::cargar_datos_usuarios(const nlohmann::json& j){
 /*
 Añade una etiqueta a las disponables en la plataforma
 */
-void Plataforma::anadir_etiqueta(){
+void Plataforma::anadir_etiqueta(std::string nombre){
+  if(etiquetas.count(nombre)){
+    throw std::runtime_error("La etiqueta ya existe: "+nombre);
+  }
+  int id = etiquetas.size();
+  etiquetas[nombre] = new Etiqueta(nombre, id);
+  secciones_eti_cont.conservativeResize(id+1, catalogo.size());
 };
 
 /*
 Añade un nuevo conteido al catálogo
 */
-void Plataforma::anadir_contenido(){
+void Plataforma::anadir_contenido(std::string nombre, int duracion, float valoracion,
+	std::list<std::string> tag, bool es_pelicula){
+    if(catalogo.count(nombre)){
+      throw std::runtime_error("El contenido ya existe: "+nombre);
+    }
+    int id = catalogo.size();
+    if(es_pelicula){
+      catalogo[nombre] = new Pelicula(nombre, valoracion, duracion, id, tag);
+    }
+    else{
+      catalogo[nombre] = new Serie(nombre, valoracion, duracion, id, tag);
+    }
+    secciones_eti_cont.conservativeResize(etiquetas.size(), id+1);
+    datos_usuario.conservativeResize(usuarios.size(), id+1);
+    for(const std::string& t:tag){
+      if(!etiquetas.count(t)){
+        throw std::runtime_error("Etiqueta no existe: "+t);
+      }
+      int id_tag = etiquetas[t]->obtener_identificador();
+      secciones_eti_cont.insert(id_tag, id) = 1;
+    }
 };
 
 /*
 Añade un nuevo usuario a la plataforma
 */
-void Plataforma::anadir_usuario(){
+void Plataforma::anadir_usuario(std::string nombre){
+  if (usuarios.count(nombre)){
+    throw std::runtime_error("El usuario ya existe: "+nombre);
+  }
+  int id = usuarios.size();
+  usuarios[nombre] = new Usuario(nombre, id);
+  datos_usuario.conservativeResize(id+1, catalogo.size());
 };

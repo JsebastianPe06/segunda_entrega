@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "duracion": 45,
+        "etiquetas": [
+            "Drama"
+        ],
+        "id": 1,
+        "nombre": "Breaking Bad",
+        "tipo": "Serie",
+        "valoracion": 5.0
+    },
+    {
+        "duracion": 120,
+        "etiquetas": [
+            "Acción"
+        ],
+        "id": 0,
+        "nombre": "Matrix",
+        "tipo": "Pelicula",
+        "valoracion": 4.800000190734863
+    }
+]

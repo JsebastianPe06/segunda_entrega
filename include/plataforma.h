@@ -49,16 +49,15 @@ class Plataforma{
 		std::unordered_map<std::string, Usuario*> usuarios;
 		Eigen::SparseMatrix<int> secciones_eti_cont; //1 si la etiqueta se relaciona al contenido, 0 si no
 		Eigen::SparseMatrix<float> datos_usuario; //Relaciona usuarios con contenido de si vió o no algo
-		int can_etiquetas;
-		int can_contenido;
 
 	public:
 		Plataforma();
 		~Plataforma();
 
-		void anadir_etiqueta();
-		void anadir_contenido(); //este método también trata las etiquetas
-		void anadir_usuario();
+		void anadir_etiqueta(std::string nombre);
+		void anadir_contenido(std::string nombre, int duracion, float valoracion,
+			std::list<std::string> tag, bool es_pelicula); //este método también trata las etiquetas
+		void anadir_usuario(std::string nombre);
 
 		//formato json guardado en data
 
