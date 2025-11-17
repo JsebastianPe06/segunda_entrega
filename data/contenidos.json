@@ -1,22 +1,1214 @@
 [
     {
-        "duracion": 45,
-        "etiquetas": [
-            "Drama"
-        ],
-        "id": 1,
-        "nombre": "Breaking Bad",
-        "tipo": "Serie",
-        "valoracion": 5.0
+        "id": 0,
+        "nombre": "The Shawshank Redemption",
+        "valoracion": 9.3,
+        "duracion": 142,
+        "etiquetas": ["Drama", "Crimen"],
+        "tipo": "Pelicula"
     },
     {
+        "id": 1,
+        "nombre": "The Godfather",
+        "valoracion": 9.2,
+        "duracion": 175,
+        "etiquetas": ["Crimen", "Historico", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 2,
+        "nombre": "The Dark Knight",
+        "valoracion": 9.0,
+                               "duracion": 152,
+        "etiquetas": ["Accion", "Crimen", "Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 3,
+        "nombre": "Pulp Fiction",
+        "valoracion": 8.9,
+        "duracion": 154,
+        "etiquetas": ["Comedia", "Crimen", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 4,
+        "nombre": "The Lord of the Rings: The Return of the King",
+        "valoracion": 9.0,
+        "duracion": 201,
+        "etiquetas": ["Aventura", "Fantasia", "Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 5,
+        "nombre": "Forrest Gump",
+        "valoracion": 8.8,
+        "duracion": 142,
+        "etiquetas": ["Drama", "Romance", "Familiar"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 6,
+        "nombre": "Fight Club",
+        "valoracion": 8.8,
+        "duracion": 139,
+        "etiquetas": ["Drama", "Misterio", "Crimen"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 7,
+        "nombre": "Inception",
+        "valoracion": 8.8,
+        "duracion": 148,
+        "etiquetas": ["Ciencia Ficcion", "Suspenso", "Fantasia"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 8,
+        "nombre": "Interstellar",
+        "valoracion": 8.6,
+        "duracion": 169,
+        "etiquetas": ["Ciencia Ficcion", "Drama", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 9,
+        "nombre": "The Matrix",
+        "valoracion": 8.7,
+        "duracion": 136,
+        "etiquetas": ["Ciencia Ficcion", "Accion", "Suspenso"],
+        "tipo": "Pelicula"
+    },
+
+    {
+        "id": 10,
+        "nombre": "Breaking Bad",
+        "valoracion": 9.5,
+        "duracion": 47,
+        "etiquetas": ["Crimen", "Drama", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 11,
+        "nombre": "Stranger Things",
+        "valoracion": 8.7,
+        "duracion": 50,
+        "etiquetas": ["Fantasia", "Ciencia Ficcion", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 12,
+        "nombre": "Game of Thrones",
+        "valoracion": 9.2,
+        "duracion": 55,
+        "etiquetas": ["Fantasia", "Aventura", "Drama"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 13,
+        "nombre": "The Office",
+        "valoracion": 8.9,
+        "duracion": 22,
+        "etiquetas": ["Comedia", "Familiar"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 14,
+        "nombre": "Friends",
+        "valoracion": 8.9,
+        "duracion": 22,
+        "etiquetas": ["Comedia", "Romance", "Familiar"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 15,
+        "nombre": "Sherlock",
+        "valoracion": 9.1,
+        "duracion": 88,
+        "etiquetas": ["Misterio", "Crimen", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 16,
+        "nombre": "The Mandalorian",
+        "valoracion": 8.7,
+        "duracion": 40,
+        "etiquetas": ["Aventura", "Ciencia Ficcion", "Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 17,
+        "nombre": "Narcos",
+        "valoracion": 8.8,
+        "duracion": 49,
+        "etiquetas": ["Crimen", "Drama", "Historico"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 18,
+        "nombre": "Black Mirror",
+        "valoracion": 8.8,
+        "duracion": 60,
+        "etiquetas": ["Ciencia Ficcion", "Suspenso", "Misterio"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 19,
+        "nombre": "Chernobyl",
+        "valoracion": 9.4,
+        "duracion": 60,
+        "etiquetas": ["Historico", "Drama", "Documental"],
+        "tipo": "Serie"
+    },
+
+    {
+        "id": 20,
+        "nombre": "Gladiator",
+        "valoracion": 8.5,
+        "duracion": 155,
+        "etiquetas": ["Historico", "Aventura", "Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 21,
+        "nombre": "Saving Private Ryan",
+        "valoracion": 8.6,
+        "duracion": 169,
+        "etiquetas": ["Guerra", "Drama", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 22,
+        "nombre": "Whiplash",
+        "valoracion": 8.5,
+        "duracion": 106,
+        "etiquetas": ["Drama", "Musical", "Romance"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 23,
+        "nombre": "The Lion King",
+        "valoracion": 8.5,
+        "duracion": 88,
+        "etiquetas": ["Animacion", "Familiar", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 24,
+        "nombre": "Shrek",
+        "valoracion": 7.9,
+        "duracion": 90,
+        "etiquetas": ["Animacion", "Comedia", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 25,
+        "nombre": "Toy Story",
+        "valoracion": 8.3,
+        "duracion": 81,
+        "etiquetas": ["Animacion", "Familiar", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 26,
+        "nombre": "Coco",
+        "valoracion": 8.4,
+        "duracion": 105,
+        "etiquetas": ["Animacion", "Romance", "Familiar"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 27,
+        "nombre": "Spirited Away",
+        "valoracion": 8.6,
+        "duracion": 125,
+        "etiquetas": ["Animacion", "Fantasia", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 28,
+        "nombre": "Your Name",
+        "valoracion": 8.4,
+        "duracion": 106,
+        "etiquetas": ["Animacion", "Romance", "Fantasia"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 29,
+        "nombre": "Parasite",
+        "valoracion": 8.6,
+        "duracion": 132,
+        "etiquetas": ["Crimen", "Drama", "Misterio"],
+        "tipo": "Pelicula"
+    },
+
+    {
+        "id": 30,
+        "nombre": "The Witcher",
+        "valoracion": 8.2,
+        "duracion": 60,
+        "etiquetas": ["Fantasia", "Aventura", "Accion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 31,
+        "nombre": "Vikings",
+        "valoracion": 8.6,
+        "duracion": 44,
+        "etiquetas": ["Historico", "Aventura", "Accion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 32,
+        "nombre": "Peaky Blinders",
+        "valoracion": 8.8,
+        "duracion": 58,
+        "etiquetas": ["Crimen", "Historico", "Drama"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 33,
+        "nombre": "The Boys",
+        "valoracion": 8.7,
+        "duracion": 60,
+        "etiquetas": ["Accion", "Comedia", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 34,
+        "nombre": "The Crown",
+        "valoracion": 8.6,
+        "duracion": 55,
+        "etiquetas": ["Historico", "Drama", "Documental"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 35,
+        "nombre": "Better Call Saul",
+        "valoracion": 8.9,
+        "duracion": 50,
+        "etiquetas": ["Crimen", "Drama"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 36,
+        "nombre": "Arcane",
+        "valoracion": 9.0,
+        "duracion": 40,
+        "etiquetas": ["Animacion", "Fantasia", "Accion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 37,
+        "nombre": "Rick and Morty",
+        "valoracion": 9.1,
+        "duracion": 22,
+        "etiquetas": ["Comedia", "Ciencia Ficcion", "Animacion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 38,
+        "nombre": "The Simpsons",
+        "valoracion": 8.7,
+        "duracion": 23,
+        "etiquetas": ["Comedia", "Animacion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 39,
+        "nombre": "Avatar",
+        "valoracion": 7.8,
+        "duracion": 162,
+        "etiquetas": ["Aventura", "Fantasia", "Ciencia Ficcion"],
+        "tipo": "Pelicula"
+    },
+
+    {
+        "id": 40,
+        "nombre": "Joker",
+        "valoracion": 8.4,
+        "duracion": 122,
+        "etiquetas": ["Drama", "Crimen", "Misterio"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 41,
+        "nombre": "The Social Network",
+        "valoracion": 7.8,
         "duracion": 120,
-        "etiquetas": [
-            "Acción"
-        ],
-        "id": 0,
-        "nombre": "Matrix",
-        "tipo": "Pelicula",
-        "valoracion": 4.800000190734863
+        "etiquetas": ["Historico", "Biografia", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 42,
+        "nombre": "The Revenant",
+        "valoracion": 8.0,
+        "duracion": 156,
+        "etiquetas": ["Aventura", "Drama", "Historico"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 43,
+        "nombre": "Oppenheimer",
+        "valoracion": 8.6,
+        "duracion": 180,
+        "etiquetas": ["Biografia", "Historico", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 44,
+        "nombre": "Dune",
+        "valoracion": 8.0,
+        "duracion": 155,
+        "etiquetas": ["Fantasia", "Ciencia Ficcion", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 45,
+        "nombre": "Spider-Man: Into the Spider-Verse",
+        "valoracion": 8.4,
+        "duracion": 117,
+        "etiquetas": ["Animacion", "Accion", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 46,
+        "nombre": "Mad Max: Fury Road",
+        "valoracion": 8.1,
+        "duracion": 120,
+        "etiquetas": ["Accion", "Aventura", "Ciencia Ficcion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 47,
+        "nombre": "Interstellar",
+        "valoracion": 8.6,
+        "duracion": 169,
+        "etiquetas": ["Ciencia Ficcion", "Drama", "Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 48,
+        "nombre": "La La Land",
+        "valoracion": 8.0,
+        "duracion": 128,
+        "etiquetas": ["Musical", "Romance", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 49,
+        "nombre": "The Hunger Games",
+        "valoracion": 7.2,
+        "duracion": 142,
+        "etiquetas": ["Aventura", "Accion", "Ciencia Ficcion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 50,
+        "nombre": "Herederos del Trueno",
+        "valoracion": 4.6,
+        "duracion": 55,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 51,
+        "nombre": "Ciudad de Hierro",
+        "valoracion": 4.4,
+        "duracion": 115,
+        "etiquetas": ["Accion", "Ciencia Ficcion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 52,
+        "nombre": "Ecos del Pasado",
+        "valoracion": 4.1,
+        "duracion": 50,
+        "etiquetas": ["Drama"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 53,
+        "nombre": "Rumbo a Saturno",
+        "valoracion": 4.7,
+        "duracion": 123,
+        "etiquetas": ["Ciencia Ficcion", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 54,
+        "nombre": "Sombras Ocultas",
+        "valoracion": 4.3,
+        "duracion": 47,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 55,
+        "nombre": "El Gran Pintor",
+        "valoracion": 3.9,
+        "duracion": 92,
+        "etiquetas": ["Drama", "Historico"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 56,
+        "nombre": "Bosque Encantado",
+        "valoracion": 4.5,
+        "duracion": 56,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 57,
+        "nombre": "Marea Roja",
+        "valoracion": 4.0,
+        "duracion": 104,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 58,
+        "nombre": "Universo Fragmentado",
+        "valoracion": 4.8,
+        "duracion": 52,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 59,
+        "nombre": "Espíritu del Viento",
+        "valoracion": 4.2,
+        "duracion": 113,
+        "etiquetas": ["Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 60,
+        "nombre": "La Sexta Puerta",
+        "valoracion": 4.6,
+        "duracion": 48,
+        "etiquetas": ["Suspenso", "Drama"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 61,
+        "nombre": "Garras del Tiempo",
+        "valoracion": 4.3,
+        "duracion": 118,
+        "etiquetas": ["Ciencia Ficcion", "Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 62,
+        "nombre": "Senderos Inesperados",
+        "valoracion": 4.0,
+        "duracion": 49,
+        "etiquetas": ["Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 63,
+        "nombre": "Horizonte Perdido",
+        "valoracion": 4.4,
+        "duracion": 101,
+        "etiquetas": ["Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 64,
+        "nombre": "Fantasmas del Acero",
+        "valoracion": 4.5,
+        "duracion": 54,
+        "etiquetas": ["Ciencia Ficcion", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 65,
+        "nombre": "Zafiro Marino",
+        "valoracion": 4.1,
+        "duracion": 99,
+        "etiquetas": ["Documental"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 66,
+        "nombre": "La Torre Infinita",
+        "valoracion": 4.7,
+        "duracion": 55,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 67,
+        "nombre": "Colisión Inminente",
+        "valoracion": 4.2,
+        "duracion": 105,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 68,
+        "nombre": "Reino Prohibido",
+        "valoracion": 4.3,
+        "duracion": 53,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 69,
+        "nombre": "Voces del Silencio",
+        "valoracion": 4.5,
+        "duracion": 111,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 70,
+        "nombre": "Ciudad Sumergida",
+        "valoracion": 4.6,
+        "duracion": 46,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 71,
+        "nombre": "Memorias del Fuego",
+        "valoracion": 4.4,
+        "duracion": 130,
+        "etiquetas": ["Historico", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 72,
+        "nombre": "Cazadores Estelares",
+        "valoracion": 4.7,
+        "duracion": 57,
+        "etiquetas": ["Ciencia Ficcion", "Accion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 73,
+        "nombre": "La Noche del Cometa",
+        "valoracion": 4.1,
+        "duracion": 93,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 74,
+        "nombre": "Horizontes Paralelos",
+        "valoracion": 4.4,
+        "duracion": 51,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 75,
+        "nombre": "El Último Guerrero",
+        "valoracion": 4.3,
+        "duracion": 134,
+        "etiquetas": ["Accion", "Fantasia"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 76,
+        "nombre": "Pacto de Sombras",
+        "valoracion": 4.2,
+        "duracion": 49,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 77,
+        "nombre": "Destino Lunar",
+        "valoracion": 4.6,
+        "duracion": 108,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 78,
+        "nombre": "El Reino de las Arenas",
+        "valoracion": 4.5,
+        "duracion": 55,
+        "etiquetas": ["Aventura", "Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 79,
+        "nombre": "Alas de Libertad",
+        "valoracion": 4.2,
+        "duracion": 112,
+        "etiquetas": ["Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 80,
+        "nombre": "El Eco de los Dioses",
+        "valoracion": 4.7,
+        "duracion": 52,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 81,
+        "nombre": "Riesgo Terminal",
+        "valoracion": 4.3,
+        "duracion": 119,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 82,
+        "nombre": "Planeta Olvidado",
+        "valoracion": 4.8,
+        "duracion": 54,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 83,
+        "nombre": "Laberinto de Huesos",
+        "valoracion": 4.1,
+        "duracion": 96,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 84,
+        "nombre": "Hermandad Celestial",
+        "valoracion": 4.4,
+        "duracion": 49,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 85,
+        "nombre": "Caos Programado",
+        "valoracion": 4.6,
+        "duracion": 118,
+        "etiquetas": ["Ciencia Ficcion", "Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 86,
+        "nombre": "Secretos del Inframundo",
+        "valoracion": 4.3,
+        "duracion": 56,
+        "etiquetas": ["Fantasia", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 87,
+        "nombre": "Tiempos de Gloria",
+        "valoracion": 4.5,
+        "duracion": 130,
+        "etiquetas": ["Historico", "Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 88,
+        "nombre": "Las Tres Lunas",
+        "valoracion": 4.2,
+        "duracion": 50,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 89,
+        "nombre": "Acero Azul",
+        "valoracion": 4.1,
+        "duracion": 98,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 90,
+        "nombre": "Herederos del Trueno",
+        "valoracion": 4.6,
+        "duracion": 55,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 91,
+        "nombre": "Noche Carmesí",
+        "valoracion": 4.3,
+        "duracion": 102,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 92,
+        "nombre": "Ciudad sin Tiempo",
+        "valoracion": 4.7,
+        "duracion": 48,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 93,
+        "nombre": "Punto de Ruptura",
+        "valoracion": 4.2,
+        "duracion": 117,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 94,
+        "nombre": "Guardianes del Bosque Etéreo",
+        "valoracion": 4.5,
+        "duracion": 53,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 95,
+        "nombre": "La Cara del Miedo",
+        "valoracion": 4.1,
+        "duracion": 94,
+        "etiquetas": ["Terror"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 96,
+        "nombre": "Constelación Rota",
+        "valoracion": 4.6,
+        "duracion": 52,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 97,
+        "nombre": "Fuego sobre el Horizonte",
+        "valoracion": 4.4,
+        "duracion": 120,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 98,
+        "nombre": "Profecía de Hielo",
+        "valoracion": 4.3,
+        "duracion": 50,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 99,
+        "nombre": "Ecos del Abismo",
+        "valoracion": 4.2,
+        "duracion": 109,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 100,
+        "nombre": "Nexo de Sombras",
+        "valoracion": 4.7,
+        "duracion": 49,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 101,
+        "nombre": "El Último Relato",
+        "valoracion": 4.0,
+        "duracion": 99,
+        "etiquetas": ["Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 102,
+        "nombre": "Reino que Despierta",
+        "valoracion": 4.5,
+        "duracion": 56,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 103,
+        "nombre": "Asedio Nocturno",
+        "valoracion": 4.3,
+        "duracion": 106,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 104,
+        "nombre": "Códice Galáctico",
+        "valoracion": 4.8,
+        "duracion": 53,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 105,
+        "nombre": "Sangre en el Desierto",
+        "valoracion": 4.1,
+        "duracion": 114,
+        "etiquetas": ["Western"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 106,
+        "nombre": "Guardia del Portal",
+        "valoracion": 4.6,
+        "duracion": 55,
+        "etiquetas": ["Fantasia", "Suspenso"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 107,
+        "nombre": "La Tormenta que Viene",
+        "valoracion": 4.4,
+        "duracion": 103,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 108,
+        "nombre": "Circuito Infinito",
+        "valoracion": 4.7,
+        "duracion": 52,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 109,
+        "nombre": "Melodía de Cristal",
+        "valoracion": 4.2,
+        "duracion": 95,
+        "etiquetas": ["Musical"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 110,
+        "nombre": "Puertas del Tiempo",
+        "valoracion": 4.5,
+        "duracion": 50,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 111,
+        "nombre": "Invasión del Horizonte",
+        "valoracion": 4.6,
+        "duracion": 118,
+        "etiquetas": ["Ciencia Ficcion", "Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 112,
+        "nombre": "El Río Esmeralda",
+        "valoracion": 4.3,
+        "duracion": 54,
+        "etiquetas": ["Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 113,
+        "nombre": "Vértigo Mortal",
+        "valoracion": 4.1,
+        "duracion": 108,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 114,
+        "nombre": "Estrella Fragmentada",
+        "valoracion": 4.6,
+        "duracion": 52,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 115,
+        "nombre": "Bajo la Llama",
+        "valoracion": 4.3,
+        "duracion": 127,
+        "etiquetas": ["Drama"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 116,
+        "nombre": "Legado del Fénix",
+        "valoracion": 4.5,
+        "duracion": 56,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 117,
+        "nombre": "Cruce Explosivo",
+        "valoracion": 4.4,
+        "duracion": 105,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 118,
+        "nombre": "Manto de la Nebulosa",
+        "valoracion": 4.8,
+        "duracion": 53,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 119,
+        "nombre": "El Ojo de la Verdad",
+        "valoracion": 4.2,
+        "duracion": 100,
+        "etiquetas": ["Misterio"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 120,
+        "nombre": "Sendero de Luz",
+        "valoracion": 4.4,
+        "duracion": 49,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 121,
+        "nombre": "Cólera de Acero",
+        "valoracion": 4.3,
+        "duracion": 110,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 122,
+        "nombre": "Horizonte Mecanizado",
+        "valoracion": 4.7,
+        "duracion": 55,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 123,
+        "nombre": "Sombras en la Arena",
+        "valoracion": 4.2,
+        "duracion": 97,
+        "etiquetas": ["Western"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 124,
+        "nombre": "El Jardín Celestial",
+        "valoracion": 4.6,
+        "duracion": 52,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 125,
+        "nombre": "El Enemigo Invisible",
+        "valoracion": 4.1,
+        "duracion": 109,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 126,
+        "nombre": "Ciudad de los Susurros",
+        "valoracion": 4.5,
+        "duracion": 48,
+        "etiquetas": ["Misterio"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 127,
+        "nombre": "Rastro de Guerra",
+        "valoracion": 4.3,
+        "duracion": 121,
+        "etiquetas": ["Guerra"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 128,
+        "nombre": "Portales del Vacío",
+        "valoracion": 4.7,
+        "duracion": 50,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 129,
+        "nombre": "Corazón del Océano",
+        "valoracion": 4.2,
+        "duracion": 98,
+        "etiquetas": ["Aventura", "Romance"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 130,
+        "nombre": "El Trono Ezmeralda",
+        "valoracion": 4.6,
+        "duracion": 56,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 131,
+        "nombre": "Sombra en la Ventana",
+        "valoracion": 4.1,
+        "duracion": 104,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 132,
+        "nombre": "Armadura de Estrellas",
+        "valoracion": 4.8,
+        "duracion": 53,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 133,
+        "nombre": "En el Fin del Mundo",
+        "valoracion": 4.3,
+        "duracion": 112,
+        "etiquetas": ["Drama", "Aventura"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 134,
+        "nombre": "Susurros de la Luna",
+        "valoracion": 4.5,
+        "duracion": 49,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 135,
+        "nombre": "Código de Sangre",
+        "valoracion": 4.2,
+        "duracion": 96,
+        "etiquetas": ["Crimen"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 136,
+        "nombre": "Vuelo Interdimensional",
+        "valoracion": 4.7,
+        "duracion": 50,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 137,
+        "nombre": "Día de Cenizas",
+        "valoracion": 4.3,
+        "duracion": 115,
+        "etiquetas": ["Guerra"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 138,
+        "nombre": "Ruinas Eternas",
+        "valoracion": 4.4,
+        "duracion": 56,
+        "etiquetas": ["Fantasia", "Aventura"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 139,
+        "nombre": "Huida del Laberinto",
+        "valoracion": 4.1,
+        "duracion": 99,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 140,
+        "nombre": "Estrella Cantante",
+        "valoracion": 4.5,
+        "duracion": 51,
+        "etiquetas": ["Musical"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 141,
+        "nombre": "Rehenes del Silencio",
+        "valoracion": 4.2,
+        "duracion": 107,
+        "etiquetas": ["Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 142,
+        "nombre": "Sistema Beta",
+        "valoracion": 4.8,
+        "duracion": 54,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 143,
+        "nombre": "Los 4 Reyes",
+        "valoracion": 4.0,
+        "duracion": 113,
+        "etiquetas": ["Drama", "Historico"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 144,
+        "nombre": "La Corona del Alba",
+        "valoracion": 4.6,
+        "duracion": 55,
+        "etiquetas": ["Fantasia"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 145,
+        "nombre": "Infierno Bajo Cero",
+        "valoracion": 4.3,
+        "duracion": 110,
+        "etiquetas": ["Accion"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 146,
+        "nombre": "Señales de Orión",
+        "valoracion": 4.7,
+        "duracion": 53,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 147,
+        "nombre": "El Arte del Crimen",
+        "valoracion": 4.2,
+        "duracion": 96,
+        "etiquetas": ["Crimen", "Suspenso"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 148,
+        "nombre": "Revelación del Vacío",
+        "valoracion": 4.8,
+        "duracion": 50,
+        "etiquetas": ["Ciencia Ficcion"],
+        "tipo": "Serie"
+    },
+    {
+        "id": 149,
+        "nombre": "Arena Roja",
+        "valoracion": 4.1,
+        "duracion": 102,
+        "etiquetas": ["Western"],
+        "tipo": "Pelicula"
+    },
+    {
+        "id": 150,
+        "nombre": "Guardianes del Cosmos",
+        "valoracion": 4.7,
+        "duracion": 54,
+        "etiquetas": ["Ciencia Ficcion", "Accion"],
+        "tipo": "Serie"
     }
 ]

@@ -27,7 +27,7 @@ class Etiqueta{
 class Contenido{
 	protected:
 		std::string nombre;
-		float valoracion; //calificación según tipo de 1.0 a 5.0
+		float valoracion; //calificación según tipo de 1.0 a 10.0
 		int id_contenido;
 		bool es_pelicula;
 		std::list<std::string> categorias;

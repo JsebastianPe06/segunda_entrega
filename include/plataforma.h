@@ -43,7 +43,7 @@ class Premium: public Plan{
 
 
 class Plataforma{
-	private:
+	public:
 		std::unordered_map<std::string, Contenido*> catalogo; //todo el contenido de la plataforma
 		std::unordered_map<std::string, Etiqueta*> etiquetas;
 		std::unordered_map<std::string, Usuario*> usuarios;

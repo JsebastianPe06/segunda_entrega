@@ -1,10 +1,64 @@
 [
     {
-        "id": 1,
-        "nombre": "Drama"
+        "id": 0,
+        "nombre": "Accion"
     },
     {
-        "id": 0,
-        "nombre": "Acción"
-    }
+        "id": 1,
+        "nombre": "Comedia"
+    },
+    {
+        "id": 2,
+        "nombre": "Drama"},
+    {
+        "id": 3,
+        "nombre": "Ciencia Ficcion"},
+    {
+        "id": 4,
+        "nombre": "Terror"},
+    {
+        "id": 5,
+        "nombre": "Romance"},
+    {
+        "id": 6,
+        "nombre": "Aventura"},
+    {
+        "id": 7,
+        "nombre": "Documental"},
+    {
+        "id": 8,
+        "nombre": "Animacion"},
+    {
+        "id": 9,
+        "nombre": "Fantasia"},
+    {
+        "id": 10,
+        "nombre": "Suspenso"},
+    {
+        "id": 11,
+        "nombre": "Misterio"},
+    {
+        "id": 12,
+        "nombre": "Crimen"},
+    {
+        "id": 13,
+        "nombre": "Musical"},
+    {
+        "id": 14,
+        "nombre": "Historico"},
+    {
+        "id": 15,
+        "nombre": "Biografia"},
+    {
+        "id": 16,
+        "nombre": "Familiar"},
+    {
+        "id": 17,
+        "nombre": "Deportes"},
+    {
+        "id": 18,
+        "nombre": "Guerra"},
+    {
+        "id": 19,
+        "nombre": "Western"}
 ]
