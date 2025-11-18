@@ -73,6 +73,12 @@ class Plataforma{
 		void cargar_contenidos(const nlohmann::json& j);
 		void cargar_secciones(const nlohmann::json& j);
 		void cargar_datos_usuarios(const nlohmann::json& j);
-};
+
+	public:
+		 // Búsqueda y recomendación
+	    std::list<Contenido*> buscar_por_nombre(const std::string& nombre);
+	    std::list<Contenido*> buscar_por_etiqueta(const std::string& etiqueta);
+	    std::list<Contenido*> recomendar(Usuario* usuario);
+}; 
 
 #endif
