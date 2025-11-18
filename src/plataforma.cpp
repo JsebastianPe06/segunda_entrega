@@ -370,3 +370,135 @@ void Plataforma::anadir_usuario(std::string nombre){
   usuarios[nombre] = new Usuario(nombre, id);
   datos_usuario.conservativeResize(id+1, catalogo.size());
 };
+/**
+ * Convierte una cadena a minúsculas para búsqueda case-insensitive
+ */
+std::string a_minusculas(const std::string& str) {
+    std::string res = str;
+    std::transform(res.begin(), res.end(), res.begin(), 
+                   [](unsigned char c){ return std::tolower(c); });
+    return res;
+}
+
+/**
+ * Busca contenidos por nombre (búsqueda case-insensitive)
+ */
+std::list<Contenido*> Plataforma::buscar_por_nombre(const std::string& nombre_busqueda) {
+    std::list<Contenido*> resultados;
+    std::string nombre_lower = a_minusculas(nombre_busqueda);
+    
+    for (const auto& par : catalogo) {
+        Contenido* contenido = par.second;
+        std::string nombre_contenido = a_minusculas(contenido->obtener_nombre());
+        
+        if (nombre_contenido.find(nombre_lower) != std::string::npos) {
+            resultados.push_back(contenido);
+        }
+    }
+    return resultados;
+}
+
+/**
+ * Busca contenidos por etiqueta/categoría
+ */
+std::list<Contenido*> Plataforma::buscar_por_etiqueta(const std::string& etiqueta_busqueda) {
+    std::list<Contenido*> resultados;
+    
+    // Verificar si la etiqueta existe
+    if (etiquetas.find(etiqueta_busqueda) == etiquetas.end()) {
+        return resultados; // Retorna lista vacía si la etiqueta no existe
+    }
+    
+    int id_etiqueta = etiquetas[etiqueta_busqueda]->obtener_identificador();
+    
+    // Buscar en la matriz de secciones
+    for (int j = 0; j < secciones_eti_cont.cols(); ++j) {
+        if (secciones_eti_cont.coeff(id_etiqueta, j) == 1) {
+            // Encontrar el contenido con ID j
+            for (const auto& par : catalogo) {
+                Contenido* contenido = par.second;
+                if (contenido->obtener_identificador() == j) {
+                    resultados.push_back(contenido);
+                    break;
+                }
+            }
+        }
+    }
+    return resultados;
+}
+
+/**
+ * Sistema de recomendación basado en contenido visto y etiquetas
+ */
+std::list<Contenido*> Plataforma::recomendar(Usuario* usuario) {
+    std::list<Contenido*> recomendaciones;
+    
+    if (!usuario || usuarios.find(usuario->obtener_nombre()) == usuarios.end()) {
+        return recomendaciones; // Usuario no válido
+    }
+    
+    int user_id = usuario->obtener_identificacdor();
+    
+    // 1. Obtener contenidos ya vistos por el usuario
+    std::vector<int> contenidos_vistos;
+    for (int j = 0; j < datos_usuario.cols(); ++j) {
+        if (datos_usuario.coeff(user_id, j) > 0) {
+            contenidos_vistos.push_back(j);
+        }
+    }
+    
+    // 2. Obtener etiquetas de los contenidos vistos
+    std::vector<int> etiquetas_interes;
+    for (int contenido_id : contenidos_vistos) {
+        for (int i = 0; i < secciones_eti_cont.rows(); ++i) {
+            if (secciones_eti_cont.coeff(i, contenido_id) == 1) {
+                etiquetas_interes.push_back(i);
+            }
+        }
+    }
+    
+    // 3. Calcular puntuación para cada contenido no visto
+    std::vector<std::pair<float, Contenido*>> puntuaciones;
+    
+    for (const auto& par : catalogo) {
+        Contenido* contenido = par.second;
+        int contenido_id = contenido->obtener_identificador();
+        
+        // Saltar si ya fue visto
+        if (std::find(contenidos_vistos.begin(), contenidos_vistos.end(), contenido_id) != contenidos_vistos.end()) {
+            continue;
+        }
+        
+        // Calcular puntuación basada en etiquetas comunes
+        float puntuacion = 0;
+        for (int i = 0; i < secciones_eti_cont.rows(); ++i) {
+            if (secciones_eti_cont.coeff(i, contenido_id) == 1) {
+                // La etiqueta i está en este contenido
+                int count = std::count(etiquetas_interes.begin(), etiquetas_interes.end(), i);
+                puntuacion += count;
+            }
+        }
+        
+        // Bonus por valoración alta
+        puntuacion += contenido->obtener_valoracion() / 10.0f;
+        
+        if (puntuacion > 0) {
+            puntuaciones.push_back({puntuacion, contenido});
+        }
+    }
+    
+    // 4. Ordenar por puntuación descendente
+    puntuaciones.sort([](const std::pair<float, Contenido*>& a, const std::pair<float, Contenido*>& b) {
+        return a.first > b.first;
+    });
+    
+    // 5. Tomar los top 10
+    int count = 0;
+    for (const auto& pair : puntuaciones) {
+        if (count >= 10) break;
+        recomendaciones.push_back(pair.second);
+        count++;
+    }
+    
+    return recomendaciones;
+}
