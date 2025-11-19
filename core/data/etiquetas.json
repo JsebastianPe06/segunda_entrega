@@ -1,15 +1,59 @@
 [
     {
-        "id": 10,
-        "nombre": "Suspenso"
+        "id": 9,
+        "nombre": "Fantasia"
     },
     {
-        "id": 1,
-        "nombre": "Comedia"
+        "id": 4,
+        "nombre": "Terror"
     },
     {
-        "id": 12,
-        "nombre": "Crimen"
+        "id": 0,
+        "nombre": "Accion"
+    },
+    {
+        "id": 13,
+        "nombre": "Musical"
+    },
+    {
+        "id": 16,
+        "nombre": "Familiar"
+    },
+    {
+        "id": 5,
+        "nombre": "Romance"
+    },
+    {
+        "id": 18,
+        "nombre": "Guerra"
+    },
+    {
+        "id": 14,
+        "nombre": "Historico"
+    },
+    {
+        "id": 17,
+        "nombre": "Deportes"
+    },
+    {
+        "id": 15,
+        "nombre": "Biografia"
+    },
+    {
+        "id": 11,
+        "nombre": "Misterio"
+    },
+    {
+        "id": 7,
+        "nombre": "Documental"
+    },
+    {
+        "id": 3,
+        "nombre": "Ciencia Ficcion"
+    },
+    {
+        "id": 2,
+        "nombre": "Drama"
     },
     {
         "id": 8,
@@ -20,63 +64,19 @@
         "nombre": "Aventura"
     },
     {
+        "id": 1,
+        "nombre": "Comedia"
+    },
+    {
+        "id": 12,
+        "nombre": "Crimen"
+    },
+    {
+        "id": 10,
+        "nombre": "Suspenso"
+    },
+    {
         "id": 19,
         "nombre": "Western"
-    },
-    {
-        "id": 18,
-        "nombre": "Guerra"
-    },
-    {
-        "id": 5,
-        "nombre": "Romance"
-    },
-    {
-        "id": 16,
-        "nombre": "Familiar"
-    },
-    {
-        "id": 13,
-        "nombre": "Musical"
-    },
-    {
-        "id": 0,
-        "nombre": "Accion"
-    },
-    {
-        "id": 4,
-        "nombre": "Terror"
-    },
-    {
-        "id": 9,
-        "nombre": "Fantasia"
-    },
-    {
-        "id": 2,
-        "nombre": "Drama"
-    },
-    {
-        "id": 3,
-        "nombre": "Ciencia Ficcion"
-    },
-    {
-        "id": 17,
-        "nombre": "Deportes"
-    },
-    {
-        "id": 14,
-        "nombre": "Historico"
-    },
-    {
-        "id": 7,
-        "nombre": "Documental"
-    },
-    {
-        "id": 11,
-        "nombre": "Misterio"
-    },
-    {
-        "id": 15,
-        "nombre": "Biografia"
     }
 ]

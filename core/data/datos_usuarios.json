@@ -6,13 +6,28 @@
     },
     {
         "contenido": 15,
+        "usuario": 0,
+        "valor": 6.0
+    },
+    {
+        "contenido": 15,
         "usuario": 1,
         "valor": 9.0
+    },
+    {
+        "contenido": 28,
+        "usuario": 6,
+        "valor": 10.0
     },
     {
         "contenido": 29,
         "usuario": 1,
         "valor": 5.0
+    },
+    {
+        "contenido": 36,
+        "usuario": 6,
+        "valor": 10.0
     },
     {
         "contenido": 95,
