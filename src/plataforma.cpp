@@ -458,7 +458,7 @@ std::list<Contenido*> Plataforma::recomendar(Usuario* usuario) {
     }
     
     // 3. Calcular puntuación para cada contenido no visto
-    std::vector<std::pair<float, Contenido*>> puntuaciones;
+    std::list<std::pair<float, Contenido*>> puntuaciones;
     
     for (const auto& par : catalogo) {
         Contenido* contenido = par.second;
