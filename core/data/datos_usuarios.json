@@ -1,0 +1,22 @@
+[
+    {
+        "contenido": 10,
+        "usuario": 0,
+        "valor": 5.0
+    },
+    {
+        "contenido": 15,
+        "usuario": 1,
+        "valor": 9.0
+    },
+    {
+        "contenido": 29,
+        "usuario": 1,
+        "valor": 5.0
+    },
+    {
+        "contenido": 95,
+        "usuario": 1,
+        "valor": 10.0
+    }
+]
