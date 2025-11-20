@@ -95,3 +95,17 @@ poder calificar dicho contenido, esta información quedará guardada en la matri
 que relaciona usuarios con contenido para cambiar la recomendación.
 
 - Cuando el usuario cierra el programa todos los datos se guardan en los .json.
+
+## Uso de IA
+
+Estimamos aproximadamente un 40% de uso de IA, si bien esta se implementó muy
+poco para el desarrollo de métodos y clases, hay 2 aspectos donde si se uso demasiado:
+
+- Para establecer el correcto manejo de los archivo .json, dada una dificultad de
+manejo de los mismo en c++.
+
+- Para desarrollo de la interfaz gráfica dado que por falta de tiempo no se pudo
+aprender a usar de manera adecuada las herramienta para el desarrollo de la misma.
+
+Ya hablando de usos más secundarios la IA se usó para buscar bibliotecas externas
+necesarias para el programa y para la solución de problemas al compilar y ejecutar.
