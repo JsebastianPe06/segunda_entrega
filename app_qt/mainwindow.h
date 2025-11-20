@@ -39,9 +39,15 @@ private:
     QWidget *mainWidget;
     QLineEdit *txtBuscarNombre;
     QLineEdit *txtBuscarEtiqueta;
+    QLineEdit *txtBuscarDuracionMin;
+    QLineEdit *txtBuscarDuracionMax;
+    QLineEdit *txtBuscarValoracionMin;
+    QLineEdit *txtBuscarValoracionMax;
     QPushButton *btnBuscarNombre;
     QPushButton *btnBuscarEtiqueta;
     QPushButton *btnRecomendaciones;
+    QPushButton *btnBuscarDuracion;
+    QPushButton *btnBuscarValoracion;
     QTableWidget *tblResultados;
     QLabel *lblUsuario;
     QLabel *lblPlanActual;
@@ -58,6 +64,8 @@ private slots:
     void entrarUsuario();
     void buscarPorNombre();
     void buscarPorEtiqueta();
+    void buscarPorDuracion();
+    void buscarPorValoracion();
     void mostrarRecomendaciones();
     void calificarContenido(int fila);
 };

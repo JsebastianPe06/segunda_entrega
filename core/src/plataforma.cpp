@@ -275,6 +275,8 @@ void Plataforma::cargar_contenidos(const nlohmann::json& j) {
       Contenido* c = new Serie(nombre, valoracion, d, id, l);
       catalogo[nombre] = c;
     }
+    indice_duracion.insert({d, nombre});
+    indice_valoracion.insert({valoracion, nombre});
   }
 };
 
@@ -373,6 +375,8 @@ void Plataforma::anadir_contenido(std::string nombre, int duracion, float valora
       int id_tag = etiquetas[t]->obtener_identificador();
       secciones_eti_cont.insert(id_tag, id) = 1;
     }
+    indice_duracion.insert({duracion, nombre});
+    indice_valoracion.insert({valoracion, nombre});
 };
 
 /*
@@ -516,3 +520,34 @@ Usuario* Plataforma::buscar_usuario(std::string nombre){
   }
   return nullptr;
 };
+
+/*
+Busca contenido usando un rango de duracion
+*/
+std::list<Contenido*> Plataforma::buscar_por_duracion(int min_d, int max_d){
+  std::list<Contenido*> resultados;
+  auto it_low  = indice_duracion.lower_bound(min_d);
+  auto it_high = indice_duracion.upper_bound(max_d);
+  for (auto it = it_low; it != it_high; ++it) {
+      const std::string& nombre_contenido = it->second;
+      // Recuperar el Contenido desde catalogo
+      if (catalogo.count(nombre_contenido)) {
+          resultados.push_back(catalogo[nombre_contenido]);
+      }
+  }
+  return resultados;
+}
+
+/*
+Busca contenido por un rango de valoración
+*/
+std::list<Contenido*> Plataforma::buscar_por_valoracion(float min_v, float max_v){
+  std::list<Contenido*> resultados;
+  auto it_low  = indice_valoracion.lower_bound(min_v);
+  auto it_high = indice_valoracion.upper_bound(max_v); 
+  for (auto it = it_low; it != it_high; ++it) {
+      const std::string& nombre = it->second;
+      resultados.push_back(catalogo[nombre]);
+  }
+  return resultados;
+}

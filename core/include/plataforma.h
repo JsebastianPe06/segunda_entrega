@@ -49,6 +49,9 @@ class Plataforma{
 		std::unordered_map<std::string, Usuario*> usuarios;
 		Eigen::SparseMatrix<int> secciones_eti_cont; //1 si la etiqueta se relaciona al contenido, 0 si no
 		Eigen::SparseMatrix<float> datos_usuario; //Relaciona usuarios con contenido de si vió o no algo
+		std::multimap<int, std::string> indice_duracion;
+		std::multimap<float, std::string> indice_valoracion;
+
 
 	public:
 		Plataforma();
@@ -81,6 +84,8 @@ class Plataforma{
 	  std::list<Contenido*> buscar_por_nombre(const std::string& nombre);
 	  std::list<Contenido*> buscar_por_etiqueta(const std::string& etiqueta);
 	  std::list<Contenido*> recomendar(std::string nombre);
+		std::list<Contenido*> buscar_por_duracion(int min_d, int max_d);
+		std::list<Contenido*> buscar_por_valoracion(float min_v, float max_v);
 }; 
 
 #endif

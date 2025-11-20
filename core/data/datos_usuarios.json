@@ -25,6 +25,11 @@
         "valor": 5.0
     },
     {
+        "contenido": 32,
+        "usuario": 0,
+        "valor": 5.0
+    },
+    {
         "contenido": 36,
         "usuario": 6,
         "valor": 10.0

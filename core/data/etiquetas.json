@@ -1,5 +1,61 @@
 [
     {
+        "id": 3,
+        "nombre": "Ciencia Ficcion"
+    },
+    {
+        "id": 15,
+        "nombre": "Biografia"
+    },
+    {
+        "id": 11,
+        "nombre": "Misterio"
+    },
+    {
+        "id": 7,
+        "nombre": "Documental"
+    },
+    {
+        "id": 17,
+        "nombre": "Deportes"
+    },
+    {
+        "id": 14,
+        "nombre": "Historico"
+    },
+    {
+        "id": 18,
+        "nombre": "Guerra"
+    },
+    {
+        "id": 19,
+        "nombre": "Western"
+    },
+    {
+        "id": 6,
+        "nombre": "Aventura"
+    },
+    {
+        "id": 8,
+        "nombre": "Animacion"
+    },
+    {
+        "id": 10,
+        "nombre": "Suspenso"
+    },
+    {
+        "id": 12,
+        "nombre": "Crimen"
+    },
+    {
+        "id": 1,
+        "nombre": "Comedia"
+    },
+    {
+        "id": 2,
+        "nombre": "Drama"
+    },
+    {
         "id": 9,
         "nombre": "Fantasia"
     },
@@ -22,61 +78,5 @@
     {
         "id": 5,
         "nombre": "Romance"
-    },
-    {
-        "id": 18,
-        "nombre": "Guerra"
-    },
-    {
-        "id": 14,
-        "nombre": "Historico"
-    },
-    {
-        "id": 17,
-        "nombre": "Deportes"
-    },
-    {
-        "id": 15,
-        "nombre": "Biografia"
-    },
-    {
-        "id": 11,
-        "nombre": "Misterio"
-    },
-    {
-        "id": 7,
-        "nombre": "Documental"
-    },
-    {
-        "id": 3,
-        "nombre": "Ciencia Ficcion"
-    },
-    {
-        "id": 2,
-        "nombre": "Drama"
-    },
-    {
-        "id": 8,
-        "nombre": "Animacion"
-    },
-    {
-        "id": 6,
-        "nombre": "Aventura"
-    },
-    {
-        "id": 1,
-        "nombre": "Comedia"
-    },
-    {
-        "id": 12,
-        "nombre": "Crimen"
-    },
-    {
-        "id": 10,
-        "nombre": "Suspenso"
-    },
-    {
-        "id": 19,
-        "nombre": "Western"
     }
 ]

@@ -84,6 +84,31 @@ void MainWindow::mostrarMainUI() {
     hEtiqueta->addWidget(btnBuscarEtiqueta);
     mainLayout->addLayout(hEtiqueta);
 
+    // Buscador por duración
+    QHBoxLayout *hDuracion = new QHBoxLayout();
+    txtBuscarDuracionMin = new QLineEdit();
+    txtBuscarDuracionMin->setPlaceholderText("Duración mínima (minutos)...");
+    txtBuscarDuracionMax = new QLineEdit();
+    txtBuscarDuracionMax->setPlaceholderText("Duración máxima (minutos)...");
+    btnBuscarDuracion = new QPushButton("Buscar");
+    hDuracion->addWidget(txtBuscarDuracionMin);
+    hDuracion->addWidget(txtBuscarDuracionMax);
+    hDuracion->addWidget(btnBuscarDuracion);
+    mainLayout->addLayout(hDuracion);
+
+
+    // Buscador por valoración (rango)
+    QHBoxLayout *hValoracion = new QHBoxLayout();
+    txtBuscarValoracionMin = new QLineEdit();
+    txtBuscarValoracionMin->setPlaceholderText("Valoración mínima (ej: 4.0)...");
+    txtBuscarValoracionMax = new QLineEdit();
+    txtBuscarValoracionMax->setPlaceholderText("Valoración máxima (ej: 9.5)...");
+    btnBuscarValoracion = new QPushButton("Buscar");
+    hValoracion->addWidget(txtBuscarValoracionMin);
+    hValoracion->addWidget(txtBuscarValoracionMax);
+    hValoracion->addWidget(btnBuscarValoracion);
+    mainLayout->addLayout(hValoracion);
+
     // Recomendaciones
     btnRecomendaciones = new QPushButton("Mostrar recomendaciones");
     mainLayout->addWidget(btnRecomendaciones);
@@ -102,6 +127,8 @@ void MainWindow::mostrarMainUI() {
     // Conexiones
     connect(btnBuscarNombre, &QPushButton::clicked, this, &MainWindow::buscarPorNombre);
     connect(btnBuscarEtiqueta, &QPushButton::clicked, this, &MainWindow::buscarPorEtiqueta);
+    connect(btnBuscarDuracion, &QPushButton::clicked, this, &MainWindow::buscarPorDuracion);
+    connect(btnBuscarValoracion, &QPushButton::clicked, this, &MainWindow::buscarPorValoracion);
     connect(btnRecomendaciones, &QPushButton::clicked, this, &MainWindow::mostrarRecomendaciones);
 
     // Mostrar recomendaciones al entrar
@@ -148,6 +175,34 @@ void MainWindow::buscarPorEtiqueta() {
 
 void MainWindow::mostrarRecomendaciones() {
     auto lista = plataforma.recomendar(usuario_actual->obtener_nombre());
+    actualizarTabla(lista);
+}
+
+void MainWindow::buscarPorDuracion() {
+    bool okMin, okMax;
+    int minDur = txtBuscarDuracionMin->text().toInt(&okMin);
+    int maxDur = txtBuscarDuracionMax->text().toInt(&okMax);
+
+    if (!okMin || !okMax || minDur > maxDur) {
+        QMessageBox::warning(this, "Error", "Ingrese un rango válido de duración.");
+        return;
+    }
+
+    auto lista = plataforma.buscar_por_duracion(minDur, maxDur); // Función por rango
+    actualizarTabla(lista);
+}
+
+void MainWindow::buscarPorValoracion() {
+    bool okMin, okMax;
+    float minVal = txtBuscarValoracionMin->text().toFloat(&okMin);
+    float maxVal = txtBuscarValoracionMax->text().toFloat(&okMax);
+
+    if (!okMin || !okMax || minVal > maxVal) {
+        QMessageBox::warning(this, "Error", "Ingrese un rango válido de valoración.");
+        return;
+    }
+
+    auto lista = plataforma.buscar_por_valoracion(minVal, maxVal); // Función por rango
     actualizarTabla(lista);
 }
 
